@@ -1,0 +1,99 @@
+body {
+	background-color: #a3d8fd;
+}
+
+#title {
+	position: relative;
+	width: 300px;
+	margin: 0 auto;
+	/* background-color: #e7fff5; */
+	padding: 10px;
+	border-radius: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-align: center;
+}
+
+.container {
+	position: relative;
+	width: 300px;
+	margin: 0 auto;
+	background-color: #e7fff5;
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 0 10px 1px 3px burlywood;
+}
+
+/*-----------------------------------*/
+
+.statistic {}
+
+#score {}
+
+#timer {}
+
+#collected-items {}
+
+/*-----------------------------------*/
+
+#game-field {
+	margin-left: 4px;
+}
+
+/*-----------------------------------*/
+
+.object {
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+	margin-right: 2px;
+}
+
+.object-icon {
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn {
+	display: flex;
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.0);
+	cursor: pointer;
+}
+
+#button {}
+
+/*-----------------------------------*/
+
+.splash-screen {}
+
+#final-text {}
+
+#final-collected {}
+
+#final-score {}
+
+#start-button {
+	display: none;
+}
+
+/*-----------------------------------*/
+
+.goal-screen {}
+
+#goal-text {}
+
+#start-game {
+	display: none;
+}
+
+/*-----------------------------------*/
+
+.hide {}
