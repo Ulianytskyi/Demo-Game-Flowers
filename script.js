@@ -1,12 +1,27 @@
-let array1 = generateArray(105, 1, 3);
+const container = document.querySelector(".container");
+const splashScreen = document.querySelector(".splash-screen");
+const finalText = document.getElementById("final-text");
+const finalCollected = document.getElementById("final-collected");
+const finalScore = document.getElementById("final-score");
+const currScore = document.getElementById("score");
+const timer = document.getElementById("timer");
+const collectedItems = document.getElementById("collected-items");
+const gameGoal = document.getElementById("goal-text");
+
+let score = 0;
+let collected = 0;
+let goal = "";
+
+let array1 = [];
 let array2 = [];
 const gameField = document.getElementById("game-field");
-displayField(array1, gameField);
+// displayField(array1, gameField);
 
-let turns = 0;
-let goal = flowerType(getRandomNumber(1, 3));
-const gameGoal = document.getElementById("title");
-gameGoal.innerHTML = "Збери усі: " + goal;
+function makeGoal() {
+  goal = flowerType(getRandomNumber(1, 3));
+  gameGoal.innerHTML = "Goal: " + goal;
+  collectedItems.innerHTML = `Collected: ${goal} ${collected}`;
+}
 
 function generateArray(length, min, max) {
   const tempArray = [];
@@ -42,20 +57,18 @@ function displayObject(array, index, targetElement) {
   let objectBtnId = "button" + index;
 
   targetElement.innerHTML += `<div class = '${objectClass}'>
-			<button class='${objectBtnClass} ${objectIconClass}' id='${objectBtnId}'>
-			${array[index].icon}
-			</button>
-		</div>`;
+  <button class='${objectBtnClass} ${objectIconClass}' id='${objectBtnId}'>
+  ${array[index].icon}
+  </button>
+  </div>`;
 }
 
 function checkGoal(goal) {
   const targetName = goal;
   const objectsWithTargetName = array1.filter((obj) => obj.icon === targetName);
-  if (objectsWithTargetName.length == 0) {
+  if (objectsWithTargetName.length > 25) {
     console.log(`You win!`);
-    disableAllButtons();
-
-    gameGoal.innerHTML = "Зроблено кроків: " + turns;
+    checkGameOver();
   }
 }
 
@@ -66,13 +79,29 @@ function disableAllButtons() {
   });
 }
 
+function checkGameOver() {
+  splashScreen.classList.remove("hide");
+  container.classList.add("hide");
+  finalText.classList.remove("hide");
+  finalCollected.classList.remove("hide");
+  finalScore.classList.remove("hide");
+  gameGoal.classList.add("hide");
+  finalCollected.innerText = `Collected: ${goal} ${collected}`;
+  finalScore.innerText = `Score: ${score}`;
+  startButton.innerText = "Restart Game";
+
+  array1 = generateArray(105, 1, 3);
+  array2 = [];
+  score = 0;
+  currScore.innerHTML = `Score: ${score}`;
+  displayField(array1, gameField);
+}
+
 function update() {
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      turns++;
-      console.log("Кроків: " + turns);
       if (array2.length < 3) {
         array2.push(index);
       } else {
@@ -83,6 +112,17 @@ function update() {
         array2.push(index);
       }
 
+      console.log(array1[index].icon);
+
+      if (array1[index].icon == goal) {
+        collected++;
+        score += 10;
+      } else {
+        score -= 10;
+      }
+      currScore.innerHTML = `Score: ${score}`;
+      collectedItems.innerHTML = `Collected: ${goal} ${collected}`;
+
       array1[index].icon = flowerType(0);
       button.textContent = flowerType(0);
       button.disabled = true;
@@ -92,4 +132,22 @@ function update() {
   });
 }
 
-update();
+function startGame() {
+  array1 = generateArray(105, 1, 3);
+  array2 = [];
+  displayField(array1, gameField);
+  if (goal != "") {
+    makeGoal();
+  }
+  container.classList.remove("hide");
+  splashScreen.classList.add("hide");
+  update();
+}
+
+const startButton = document.getElementById("start-button");
+startButton.addEventListener("click", function () {
+  startGame();
+  document.body.style.overflow = "inherit";
+});
+
+makeGoal();

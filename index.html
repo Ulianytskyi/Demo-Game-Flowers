@@ -12,24 +12,24 @@
 
 <body>
 
-	<div id="title">Збери усі: 🌷</div>
-
 	<div class="container hide">
 		<div class="statistic">
-			<div id="score"></div>
-			<div id="timer"></div>
-			<div id="collected-items"></div>
+			<div id="score">Score: 0</div>
+			<div id="timer">Timer: 00</div>
+			<div id="collected-items">Collected: 0</div>
 		</div>
 		<div id="game-field"></div>
 	</div>
+
 	<div class="splash-screen">
-		<div id="final-text"></div>
-		<div id="final-collected"></div>
-		<div id="final-score"></div>
-		<button id="start-button"></button>
+		<h2 id="final-text" class="hide">Game Over</h2>
+		<div id="final-collected" class="hide"></div>
+		<div id="final-score" class="hide"></div>
+		<button id="start-button">Start Game</button>
 	</div>
-	<div class="goal-screen hide">
-		<div id="goal-text"></div>
+
+	<div class="goal-screen mhide">
+		<div id="goal-text">Goal: 🌷</div>
 		<button id="start-game"></button>
 	</div>
 

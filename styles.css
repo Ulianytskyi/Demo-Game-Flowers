@@ -27,7 +27,12 @@ body {
 
 /*-----------------------------------*/
 
-.statistic {}
+.statistic {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 8px 10px;
+}
 
 #score {}
 
@@ -81,12 +86,22 @@ body {
 #final-score {}
 
 #start-button {
-	display: none;
+	background-color: #a3d8fd;
+	padding: 10px;
+	border: none;
+	border-radius: 8px;
+	font-size: 22px;
+	letter-spacing: 0.2px;
+	color: #ffffff;
 }
 
 /*-----------------------------------*/
 
-.goal-screen {}
+.goal-screen {
+	position: relative;
+	width: 300px;
+	margin-top: 30px;
+}
 
 #goal-text {}
 
@@ -96,4 +111,6 @@ body {
 
 /*-----------------------------------*/
 
-.hide {}
+.hide {
+	display: none;
+}
