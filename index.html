@@ -1,36 +1,56 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Demo Game: Flowers, vr.4</title>
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+	<title>Demo Game: Flowers, vr.5</title>
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon"
-		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+		
+	<script>
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            var now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
 </head>
 
 <body>
 
+	<div class="title">Demo Game: Flowers, vr.5</div>
+
 	<div class="container hide">
 		<div class="statistic">
+			<div id="health">❤️❤️❤️</div>
+			<div id="collected-items">Collected: 🌷 0</div>
 			<div id="score">Score: 0</div>
-			<div id="timer">Timer: 00</div>
-			<div id="collected-items">Collected: 0</div>
 		</div>
 		<div id="game-field"></div>
 	</div>
 
 	<div class="splash-screen">
-		<h2 id="final-text" class="hide">Game Over</h2>
-		<div id="final-collected" class="hide"></div>
-		<div id="final-score" class="hide"></div>
-		<button id="start-button">Start Game</button>
+		<div id="final-text" class="win-lose hide">Game Over</div>
+		<div class="final-block hide">
+			<div id="final-collected" class="hide"></div>
+			<div id="final-score" class="hide"></div>
+		</div>
+		<button id="start-button">Take Flowers!</button>
 	</div>
 
-	<div class="goal-screen mhide">
+	<div class="goal-screen hide">
 		<div id="goal-text">Goal: 🌷</div>
-		<button id="start-game"></button>
+		<button id="start-game">Start Game</button>
 	</div>
 
 	<script src="script.js"></script>

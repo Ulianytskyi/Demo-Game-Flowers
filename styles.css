@@ -1,23 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto&display=swap');
+
 body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
 	background-color: #a3d8fd;
 }
 
-#title {
+.title {
 	position: relative;
-	width: 300px;
-	margin: 0 auto;
-	/* background-color: #e7fff5; */
-	padding: 10px;
-	border-radius: 20px;
-	font-size: 20px;
-	font-weight: bold;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	z-index: 1;
 	text-align: center;
+	margin-top: 20px;
+	font-family: 'Luckiest Guy', cursive;
+	font-size: 28px;
+	color: white;
+	text-shadow: 2px 2px #006cb7;
+	background-color: #74b374;
+	width: 100%;
 }
 
-.container {
-	position: relative;
-	width: 300px;
+.container,
+.splash-screen,
+.goal-screen {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50vh;
+	left: 50vw;
+	width: 318px;
 	margin: 0 auto;
 	background-color: #e7fff5;
 	padding: 20px;
@@ -31,19 +41,24 @@ body {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-	margin: 0 8px 10px;
+	margin: 0 8px;
+	padding: 5px 8px;
+	border-radius: 8px;
+	background-color: #c4e7ff;
+	box-shadow: inset 0px 0px 8px #7493a9;
+	-webkit-box-shadow: inset 0px 0px 8px #7493a9;
 }
-
-#score {}
-
-#timer {}
-
-#collected-items {}
 
 /*-----------------------------------*/
 
 #game-field {
+	margin-top: 18px;
 	margin-left: 4px;
+	background-color: #b2e9b2;
+	border-radius: 8px;
+	padding: 10px;
+	box-shadow: inset 0px 0px 8px #084306;
+	-webkit-box-shadow: inset 0px 0px 8px #084306;
 }
 
 /*-----------------------------------*/
@@ -73,44 +88,83 @@ body {
 	cursor: pointer;
 }
 
-#button {}
-
 /*-----------------------------------*/
 
-.splash-screen {}
-
-#final-text {}
-
-#final-collected {}
-
-#final-score {}
-
-#start-button {
-	background-color: #a3d8fd;
-	padding: 10px;
-	border: none;
-	border-radius: 8px;
-	font-size: 22px;
-	letter-spacing: 0.2px;
-	color: #ffffff;
-}
-
-/*-----------------------------------*/
-
+.splash-screen,
 .goal-screen {
-	position: relative;
-	width: 300px;
-	margin-top: 30px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #a3d8fd;
 }
 
-#goal-text {}
+.win-lose {
+	font-size: 45px;
+	text-transform: uppercase;
+	margin: 20px;
+	padding: 10px 20px;
+	border-radius: 8px;
+	color: white;
+	font-weight: bold;
+	background-color: #a50000;
+}
 
-#start-game {
-	display: none;
+.win-style {
+	background-color: green;
+}
+
+#final-collected,
+#final-score {
+	margin: 1px 5px 10px;
+}
+
+/*-----------------------------------*/
+
+.final-block,
+#goal-text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	padding: 10px 20px 8px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #ecf7ff;
+}
+
+#goal-text {
+	padding: 10px 20px 15px;
+}
+
+/*-----------------------------------*/
+
+#start-game,
+#start-button {
+	width: 200px;
+	height: 60px;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border: none;
+	background-color: #006cb7;
+	color: whitesmoke;
+	border-radius: 8px;
+	cursor: pointer;
+}
+#start-game:hover,
+#start-button:hover {
+	box-shadow: 0 3px 1px 1px #469fdd;
 }
 
 /*-----------------------------------*/
 
 .hide {
-	display: none;
+    display: none;
 }
